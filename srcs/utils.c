@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/23 19:36:00 by lpinheir         ###   ########.fr       */
+/*   Created: 2022/03/23 19:29:34 by lpinheir          #+#    #+#             */
+/*   Updated: 2022/03/23 19:35:22 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+void    ft_error(int exit_code)
 {
-    if (argc <= 1)
-        exit(1);
-    if (argv[1] != NULL)
-    {
-        printf("argv0: %s\n", argv[1]);
-    }
-    return (0);
+    printf("Error\n");
+    exit(exit_code);
 }
