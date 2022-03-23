@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/23 19:17:41 by lpinheir         ###   ########.fr       */
+/*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
+/*   Updated: 2022/03/23 19:17:12 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int main(void)
-{
-    char *hello = "Hello";
+/* LIBRARIES */
+# include <stdio.h>
 
-    printf("%s\n", hello);
-    return (0);
-}
+#endif
