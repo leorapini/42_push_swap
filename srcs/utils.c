@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 13:42:01 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:53:15 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_error(int exit_code)
 	printf("Error\n");
 	exit(exit_code);
 }
-
-
 
 void	print_array(int *array, size_t len)
 {
