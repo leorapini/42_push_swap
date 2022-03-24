@@ -1,48 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swaps.c                                            :+:      :+:    :+:   */
+/*   logic.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 14:00:14 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 14:44:10 by lpinheir         ###   ########.fr       */
+/*   Created: 2022/03/24 14:27:08 by lpinheir          #+#    #+#             */
+/*   Updated: 2022/03/24 14:33:19 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(int *stack_a, size_t current_len)
+void	swap_it(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
 {
-	int	temp_0;
-
-	if (current_len > 1)
-	{
-		temp_0 = stack_a[0];
-		stack_a[0] = stack_a[1];
-		stack_a[1] = temp_0;
-		printf("\nsa\n");
-	}
-	
-}
-
-void	swap_b(int *stack_b, size_t current_len)
-{
-	int	temp_0;
-
-	if (current_len > 1)
-	{
-		temp_0 = stack_b[0];
-		stack_b[0] = stack_b[1];
-		stack_b[1] = temp_0;
-		printf("\nsbå\n");
-	}
-	
-}
-
-void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
-{
+	if (len_b > 50)
+		printf("%d", stack_b[0]);
 	swap_a(stack_a, len_a);
 	swap_b(stack_b, len_b);
-	printf("\nss\n");
 }
