@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 14:12:27 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:24:21 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int		str_is_digit(char *s);
 
 /* PUSH SWAP SORTING */
 void	swap_a(int *stack_a, size_t current_len);
+void	swap_b(int *stack_b, size_t current_len);
 
 #endif
