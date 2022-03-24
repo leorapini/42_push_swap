@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 11:37:30 by lpinheir         ###   ########.fr       */
+/*   Created: 2022/03/24 13:41:15 by lpinheir          #+#    #+#             */
+/*   Updated: 2022/03/24 13:47:41 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	is_argv_num(char **argv)
 {
-	int		*stack_a;
-	size_t	len;
-	size_t	i;
-	size_t	j;
+	int	i;
 
 	i = START_ARGV;
-	j = 0;
-	len = argc - 1;
-	if (argc <= 2)
-		exit(1);
-	if (argv[1] == NULL || !(is_argv_num(argv)))
-		ft_error(1);
-	stack_a = (int *) malloc(len * sizeof(int));
-	if (stack_a == NULL)
-		ft_error(1);
-	copy_to_stack_a(argv, stack_a, len);
-	print_array(stack_a, len);
-	free(stack_a);
-	return (0);
+	while (argv[i] != NULL)
+	{
+		if (!(str_is_digit(argv[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	str_is_digit(char *s)
+{
+	int negative_control;
+
+	negative_control = 0;
+	while (*s)
+	{
+		if (*s == '-' && negative_control == 0)
+			negative_control = 1;
+		else if ((ft_isdigit(*s)) == 0)
+			return (0);
+		s++;
+	}
+	return (1);
 }
