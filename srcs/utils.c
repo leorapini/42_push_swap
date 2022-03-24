@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 13:53:15 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:27:29 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	print_array(int *array, size_t len)
 {
 	size_t	i;
 
+	if (len == 0)
+	{
+		printf("EMPTY\n");
+		return ;
+	}
 	i = 0;
 	while (i < len)
 	{

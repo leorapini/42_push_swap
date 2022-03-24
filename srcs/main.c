@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 14:44:59 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:26:20 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ int	main(int argc, char **argv)
 	int		*stack_b;
 	size_t	len_a;
 	size_t	len_b;
-	size_t	i;
-	size_t	j;
 
-	i = START_ARGV;
-	j = 0;
 	len_a = argc - 1;
 	len_b = 0;
 	if (argc <= 2)

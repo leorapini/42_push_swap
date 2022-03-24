@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:00:14 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 14:44:10 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:28:07 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	swap_a(int *stack_a, size_t current_len)
 		temp_0 = stack_a[0];
 		stack_a[0] = stack_a[1];
 		stack_a[1] = temp_0;
-		printf("\nsa\n");
+		printf("sa\n");
 	}
-	
 }
 
 void	swap_b(int *stack_b, size_t current_len)
@@ -35,14 +34,13 @@ void	swap_b(int *stack_b, size_t current_len)
 		temp_0 = stack_b[0];
 		stack_b[0] = stack_b[1];
 		stack_b[1] = temp_0;
-		printf("\nsbå\n");
+		printf("sb\n");
 	}
-	
 }
 
 void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
 {
 	swap_a(stack_a, len_a);
 	swap_b(stack_b, len_b);
-	printf("\nss\n");
+	printf("ss\n");
 }
