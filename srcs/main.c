@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 14:11:49 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/24 14:14:14 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	copy_to_stack_a(argv, stack_a, len_a);
 	printf("PRE SA\n");
 	print_array(stack_a, len_a);
-	swap_a(stack_a);
+	swap_a(stack_a, len_a);
 	printf("\nPOST SA\n");
 	print_array(stack_a, len_a);
 	free(stack_a);
