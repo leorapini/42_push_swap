@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 11:03:45 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 11:32:23 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:40:10 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ void	rotate(int *stack, size_t current_len, char *operation)
 			i++;
 		}
 		stack[i] = new_last;
-		printf("%s\n", operation);
+		if (operation != NULL)
+			printf("%s\n", operation);
+	}
+}
+
+void	rotate_a_rotate_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+{
+	if (*len_a > 0 || *len_b > 0)
+	{
+		rotate(stack_a, *len_a, NULL);
+		rotate(stack_b, *len_b, NULL);
+		printf("rr\n");
 	}
 }

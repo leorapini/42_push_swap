@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 11:32:13 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:39:49 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	push_a(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 void	push_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* ROTATE SORTING */
-void	rotate(int *stack_a, size_t current_len, char *operation);
+void	rotate(int *stack, size_t current_len, char *operation);
+void	rotate_a_rotate_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
