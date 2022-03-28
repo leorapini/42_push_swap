@@ -6,41 +6,33 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:00:14 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 15:28:07 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:50:08 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a(int *stack_a, size_t current_len)
+void swap(int *stack, size_t current_len, char *operation)
 {
 	int	temp_0;
 
 	if (current_len > 1)
 	{
-		temp_0 = stack_a[0];
-		stack_a[0] = stack_a[1];
-		stack_a[1] = temp_0;
-		printf("sa\n");
-	}
-}
-
-void	swap_b(int *stack_b, size_t current_len)
-{
-	int	temp_0;
-
-	if (current_len > 1)
-	{
-		temp_0 = stack_b[0];
-		stack_b[0] = stack_b[1];
-		stack_b[1] = temp_0;
-		printf("sb\n");
+		temp_0 = stack[0];
+		stack[0] = stack[1];
+		stack[1] = temp_0;
+		if (operation != NULL)
+			printf("%s\n", operation);
 	}
 }
 
 void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
 {
-	swap_a(stack_a, len_a);
-	swap_b(stack_b, len_b);
-	printf("ss\n");
+	if (len_a > 0 || len_b > 0)
+	{
+		swap(stack_a, len_a, NULL);
+		swap(stack_b, len_b, NULL);
+		printf("ss\n");
+	}
+
 }

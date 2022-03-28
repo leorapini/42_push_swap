@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:35:36 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 11:43:17 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:04:22 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 	print_array(stack_b, *len_b);
 	printf("\n");
 
+	push_b(stack_a, stack_b, len_a, len_b);
+	push_b(stack_a, stack_b, len_a, len_b);
+	push_b(stack_a, stack_b, len_a, len_b);
+	push_b(stack_a, stack_b, len_a, len_b);
 	rotate_a_rotate_b(stack_a, stack_b, *len_a, *len_b);
 
 	printf("\nPOST SORT A\n");
