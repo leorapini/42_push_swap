@@ -6,7 +6,7 @@
 #    By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 18:46:33 by lpinheir          #+#    #+#              #
-#    Updated: 2022/03/24 15:40:46 by lpinheir         ###   ########.fr        #
+#    Updated: 2022/03/28 11:16:24 by lpinheir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS = $(S_DIR)/main.c \
 		$(S_DIR)/swap_it.c \
 		$(S_DIR)/test.c \
 		$(S_DIR)/pushes.c \
+		$(S_DIR)/rotates.c \
 
 OBJS = $(subst $(S_DIR), $(O_DIR), $(SRCS:.c=.o))
 

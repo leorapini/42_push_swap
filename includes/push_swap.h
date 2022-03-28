@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 10:28:31 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 11:15:29 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int		is_number_repeated(int *stack_a, long int number, size_t current_len);
 int		is_argv_num(char **argv);
 int		str_is_digit(char *s);
 
+/* LOGIC */
+void	swap_it(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+
 /* SWAP SORTING */
 void	swap_a(int *stack_a, size_t current_len);
 void	swap_b(int *stack_b, size_t current_len);
@@ -40,8 +43,8 @@ void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b);
 void	push_a(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 void	push_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
-/* LOGIC */
-void	swap_it(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+/* ROTATE SORTING */
+void	rotate_a(int *stack_a, size_t current_len);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
