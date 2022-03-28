@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 15:27:29 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 10:29:46 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	print_array(int *array, size_t len)
 		return ;
 	}
 	i = 0;
+	printf("[");
 	while (i < len)
 	{
-		printf("%d\n", array[i]);
+		printf("%d,", array[i]);
 		i++;
 	}
+	printf("]\n");
 }
 
 void	copy_to_stack_a(char **argv, int *stack_a, size_t len)

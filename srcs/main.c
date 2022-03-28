@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 18:21:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/24 15:26:20 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 08:36:45 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	if (stack_a == NULL || stack_b == NULL)
 		ft_error(1);
 	copy_to_stack_a(argv, stack_a, len_a);
-	swap_it(stack_a, stack_b, len_a, len_b);
+	swap_it(stack_a, stack_b, &len_a, &len_b);
 	free(stack_a);
 	free(stack_b);
 	return (0);
