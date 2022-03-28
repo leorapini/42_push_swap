@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 12:05:12 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/03/28 12:36:32 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		str_is_digit(char *s);
 void	swap_it(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* SWAP SORTING */
-void swap(int *stack, size_t current_len, char *operation);
+void	swap(int *stack, size_t current_len, char *operation);
 void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b);
 
 /* PUSH SORTING */
@@ -45,6 +45,10 @@ void	push_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 /* ROTATE SORTING */
 void	rotate(int *stack, size_t current_len, char *operation);
 void	rotate_a_rotate_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b);
+
+/* REVERSE ROTATE */
+void	reverse_rotate(int *stack, size_t current_len, char *operation);
+void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
