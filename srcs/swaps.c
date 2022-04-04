@@ -6,13 +6,13 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:00:14 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 11:50:08 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/04 11:49:10 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(int *stack, size_t current_len, char *operation)
+void	swap(int *stack, size_t current_len, char *operation)
 {
 	int	temp_0;
 
@@ -34,5 +34,4 @@ void	swap_a_swap_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
 		swap(stack_b, len_b, NULL);
 		printf("ss\n");
 	}
-
 }

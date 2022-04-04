@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 12:21:50 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 12:35:16 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/04 11:49:41 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	reverse_rotate(int *stack, size_t current_len, char *operation)
 {
 	size_t	i;
-	int	new_first;
+	int		new_first;
 
 	i = current_len - 1;
 	if (current_len > 0)
@@ -32,7 +32,8 @@ void	reverse_rotate(int *stack, size_t current_len, char *operation)
 	}
 }
 
-void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a, size_t len_b)
+void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a,
+	size_t len_b)
 {
 	if (len_a > 0 || len_b > 0)
 	{
