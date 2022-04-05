@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 15:30:28 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 10:53:05 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/04 11:56:10 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	push_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 		remove_item_at_top(stack_a, *len_a);
 		*len_a = *len_a - 1;
 		*len_b = *len_b + 1;
-		printf("pa\n");
+		printf("pb\n");
 	}
 }
 
