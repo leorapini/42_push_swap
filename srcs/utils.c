@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:29:34 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/03/28 10:29:46 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/10 15:44:04 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	copy_to_stack_a(char **argv, int *stack_a, size_t len)
 	number = 0;
 	while (i < len)
 	{
-		number = (long int) ft_atoi(argv[j]);
+		number = (long int)ft_atoi(argv[j]);
 		if (is_number_repeated(stack_a, number, i))
 			ft_error(1);
 		stack_a[i] = number;
@@ -71,4 +71,19 @@ int	is_number_repeated(int *stack_a, long int number, size_t current_len)
 		i++;
 	}
 	return (0);
+}
+
+int	is_a_stack_sorted(int *stack_a, size_t current_len)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < current_len)
+	{
+		if (i + 1 < current_len)
+			if (stack_a[i] > stack_a[i + 1])
+				return (0);
+		i++;
+	}
+	return (1);
 }
