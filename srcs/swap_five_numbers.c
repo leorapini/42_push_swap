@@ -6,28 +6,69 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/13 15:32:07 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:18:55 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	return_smallest_index(int *stack_a, int current_len)
+{
+	int	i;
+	int	smallest;
+	int	smallest_index;
+
+	i = 0;
+	smallest = 2147483647;
+	smallest_index = 0;
+	while (i < current_len)
+	{
+		if (stack_a[i] < smallest)
+		{
+			smallest = stack_a[i];
+			smallest_index = i;
+		}
+		i++;
+	}
+	return (smallest_index);
+}
+
 static void	push_the_smallest_to_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 {
 	int	i;
+	int	smallest_index;
 
 	i = 0;
+	smallest_index = 0;
 	while (i < 2)
 	{
-		if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] < stack_a[*len_a - 1])
+		smallest_index = return_smallest_index(stack_a, *len_a);
+		if (smallest_index == FIRST)
+			push_b(stack_a, stack_b, len_a, len_b);
+		else if (smallest_index == SECOND)
+		{
 			swap(stack_a, *len_a, "sa");
-		else if (stack_a[*len_a - 1] < stack_a[FIRST] && stack_a[*len_a - 1] < stack_a[SECOND])
+			push_b(stack_a, stack_b, len_a, len_b);
+		}
+		else if (smallest_index == (int) *len_a - 1)
+		{
 			reverse_rotate(stack_a, *len_a, "rra");
-		// else if (stack_a[SECOND] < stack_a[FIRST])
-		// 	swap(stack_a, *len_a, "sa");
-		// else if (stack_a[*len_a - 1] < stack_a[FIRST])
-		// 	reverse_rotate(stack_a, *len_a, "rra");
-		push_b(stack_a, stack_b, len_a, len_b);
+			push_b(stack_a, stack_b, len_a, len_b);
+		}
+		else if (smallest_index == FOURTH)
+		{
+			reverse_rotate(stack_a, *len_a, "rra");
+			reverse_rotate(stack_a, *len_a, "rra");
+			push_b(stack_a, stack_b, len_a, len_b);
+		}
+		else
+		{
+			if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] < stack_a[*len_a - 1])
+				swap(stack_a, *len_a, "sa");
+			else if (stack_a[*len_a - 1] < stack_a[FIRST] && stack_a[*len_a - 1] < stack_a[SECOND])
+				reverse_rotate(stack_a, *len_a, "rra");
+			push_b(stack_a, stack_b, len_a, len_b);
+		}
 		i++;
 	}
 }
@@ -62,8 +103,10 @@ void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 {
 	int i;
 	int	current_number;
+	int smallest_number;
 
 	i = 0;
+	smallest_number = 0;
 	if (!(express_sorting_for_five(stack_a)))
 		push_the_smallest_to_b(stack_a, stack_b, len_a, len_b);
 		swap_three_numbers_a(stack_a);
