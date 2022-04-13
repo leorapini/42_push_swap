@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/10 15:45:55 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/13 14:53:00 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 
 /* DEFINES */
 # define	START_ARGV 1
+# define	FIRST 0
+# define	SECOND 1
+# define	THIRD 2
+# define	FOURTH 3
+# define	FIFTH 4
 
 /* UTILS */
 void	ft_error(int exit_code);
@@ -52,6 +57,16 @@ void	rotate_a_rotate_b(int *stack_a, int *stack_b, size_t len_a,
 void	reverse_rotate(int *stack, size_t current_len, char *operation);
 void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a,
 			size_t len_b);
+
+/* SWAP TWO NUMBERS */
+void	swap_two_numbers_a(int *stack);
+void	swap_two_numbers_b(int *stack);
+
+/* SWAP THREE NUMBERS */
+void	swap_three_numbers_a(int *stack);
+
+/* SWAP FIVE NUMBERS */
+void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
