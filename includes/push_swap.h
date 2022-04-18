@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/13 15:54:46 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/18 19:34:21 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a,
 
 /* SWAP TWO NUMBERS */
 void	swap_two_numbers_a(int *stack);
-void	swap_two_numbers_b(int *stack);
+void	swap_two_numbers_b(int *stack, int *counter);
 
 /* SWAP THREE NUMBERS */
-void	swap_three_numbers_a(int *stack);
+void	swap_three_numbers_a(int *stack, int *counter);
 
 /* SWAP FIVE NUMBERS */
-void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
