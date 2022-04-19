@@ -6,7 +6,7 @@
 #    By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 18:46:33 by lpinheir          #+#    #+#              #
-#    Updated: 2022/04/13 14:54:06 by lpinheir         ###   ########.fr        #
+#    Updated: 2022/04/19 13:45:08 by lpinheir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS = $(S_DIR)/main.c \
 		$(S_DIR)/reverse_rotates.c \
 		$(S_DIR)/swap_two_numbers.c \
 		$(S_DIR)/swap_three_numbers.c \
+		$(S_DIR)/swap_four_numbers.c \
 		$(S_DIR)/swap_five_numbers.c \
 
 OBJS = $(subst $(S_DIR), $(O_DIR), $(SRCS:.c=.o))
