@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/19 14:29:59 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:54:13 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,6 @@ static void	push_the_smallest_to_b_in_four(int *stack_a, int *stack_b, size_t *l
 			reverse_rotate(stack_a, *len_a, "rra");
 			push_b(stack_a, stack_b, len_a, len_b);
 		}
-		// else
-		// {
-		// 	// printf("P2B: ELSE\n");
-		// 	if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] < stack_a[*len_a - 1])
-		// 	{
-		// 		*counter = *counter + 1;
-		// 		swap(stack_a, *len_a, "sa");
-		// 	}
-		// 	else if (stack_a[*len_a - 1] < stack_a[FIRST] && stack_a[*len_a - 1] < stack_a[SECOND])
-		// 	{
-		// 		*counter = *counter + 1;
-		// 		reverse_rotate(stack_a, *len_a, "rra");
-		// 	}
-		// 	*counter = *counter + 1;
-		// 	push_b(stack_a, stack_b, len_a, len_b);
-		// }
 		i++;
 	}
 }
@@ -142,58 +126,6 @@ void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 				*counter = *counter + 1;
 				push_a(stack_a, stack_b, len_a, len_b);
 			}
-			else if (current_number > stack_a[*len_a - 1])
-			{
-				// printf("current_number > stack_a[*len_a - 1\n");
-				*counter = *counter + 2;
-				push_a(stack_a, stack_b, len_a, len_b);
-				rotate(stack_a, *len_a, "ra");
-			}
-			else if (current_number > stack_a[FIRST] && current_number < stack_a[SECOND])
-			{
-				// printf("current_number > stack_a[FIRST] && current_number < stack_a[SECOND]\n");
-				*counter = *counter + 2;
-				push_a(stack_a, stack_b, len_a, len_b);
-				swap(stack_a, *len_a, "sa");
-			}
-			// if (i == FIRST)
-			// {
-			// 	if (current_number > stack_a[SECOND] && current_number < stack_a[THIRD])
-			// 	{
-			// 		printf("i == FIRST | current_number > stack_a[SECOND] && current_number < stack_a[THIRD]\n");
-			// 		*counter = *counter + 5;
-			// 		push_a(stack_a, stack_b, len_a, len_b);
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 		swap(stack_a, *len_a, "sa");
-			// 		rotate(stack_a, *len_a, "ra");
-			// 		rotate(stack_a, *len_a, "ra");
-			// 	}
-			// }
-			// else
-			// {
-			// 	if (current_number > stack_a[THIRD] && current_number < stack_a[FOURTH])
-			// 	{
-			// 		printf("ELSE | current_number > stack_a[THIRD] && current_number < stack_a[FOURTH]\n");
-			// 		*counter = *counter + 5;
-			// 		push_a(stack_a, stack_b, len_a, len_b);
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 		swap(stack_a, *len_a, "sa");
-			// 		rotate(stack_a, *len_a, "ra");
-			// 		rotate(stack_a, *len_a, "ra");
-			// 	}
-			// 	else if (current_number > stack_a[SECOND] && current_number < stack_a[THIRD])
-			// 	{
-			// 		// printf("ELSE | current_number > stack_a[SECOND] && current_number < stack_a[THIRD]\n");
-			// 		*counter = *counter + 7;
-			// 		push_a(stack_a, stack_b, len_a, len_b);
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 		swap(stack_a, *len_a, "sa");
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 		swap(stack_a, *len_a, "sa");
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 		reverse_rotate(stack_a, *len_a, "rra");
-			// 	}
-			// } 
 			i++;
 		}
 }
