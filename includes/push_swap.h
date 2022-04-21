@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/19 13:44:53 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/19 18:48:37 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 
 /* SWAP FIVE NUMBERS */
 void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+
+/* SWAP MORE NUMBERS */
+void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
