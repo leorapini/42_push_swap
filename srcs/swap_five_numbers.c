@@ -6,13 +6,13 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/19 13:43:40 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/22 17:09:23 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	return_smallest_index(int *stack_a, int current_len)
+int	return_smallest_index(int *stack_a, int current_len)
 {
 	int	i;
 	int	smallest;
@@ -31,6 +31,27 @@ static int	return_smallest_index(int *stack_a, int current_len)
 		i++;
 	}
 	return (smallest_index);
+}
+
+int	return_largest_index(int *stack_a, int current_len)
+{
+	int	i;
+	int	largest_number;
+	int	largest_index;
+
+	i = 0;
+	largest_number = -2147483646;
+	largest_index = 0;
+	while (i < current_len)
+	{
+		if (stack_a[i] > largest_number)
+		{
+			largest_number = stack_a[i];
+			largest_index = i;
+		}
+		i++;
+	}
+	return (largest_index);
 }
 
 static void	push_the_smallest_to_b(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter)

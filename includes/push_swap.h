@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/19 18:48:37 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/22 17:19:08 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,12 @@ void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 
 /* SWAP FIVE NUMBERS */
 void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+int		return_smallest_index(int *stack_a, int current_len);
+int		return_largest_index(int *stack_a, int current_len);
 
 /* SWAP MORE NUMBERS */
 void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+int		return_average_value(int *stack_a, size_t len_a);
 
 /* TEST */
 void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
