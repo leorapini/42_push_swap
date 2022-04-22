@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/22 19:07:43 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/22 19:28:35 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,11 @@ static int	return_proximity_index(int *stack, size_t len, int current_number)
 	i = 0;
 	while (i < len)
 	{
-		if ((current_number > stack[i] && current_number < stack[i + 1]) || (current_number < stack[i] && current_number > stack[len - 1]))
+		if ((current_number > stack[i] && current_number < stack[i + 1]))
 			break ;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
 void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter)
@@ -188,6 +188,12 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 					push_a(stack_a, stack_b, len_a, len_b);
 					swap(stack_a, *len_a, "sa");
 					break ; 
+				}
+				else if (current_number < stack_a[FIRST] && current_number > stack_a[*len_a - 1])
+				{
+					*counter = *counter + 1;
+					push_a(stack_a, stack_b, len_a, len_b);
+					break ;
 				}
 				else
 				{
