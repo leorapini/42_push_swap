@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 15:20:06 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 16:03:16 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,24 +130,22 @@ static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, si
 			distance_sec = prox_index_sec;
 		else
 			distance_sec = (int) *len_a - prox_index_sec;
-		// the min should be dinamically calculated. Ie if *len_a > 10, min should be 3, if len_a > 20 it should be 5, etc...
-		// printf("distance: %d len_a %zu\n", distance, *len_a);
 		if (distance <= distance_last && distance <= distance_sec)
 		{
-			if (distance <= (int) *len_a / 4)
+			if (distance <= (int) *len_a / 5)
 				break;
 		}
-		if (distance_last < distance && distance_last <= distance_sec)
+		if (distance_last <= distance && distance_last <= distance_sec)
 		{
-			if (distance_last <= (int) *len_a / 4)
+			if (distance_last <= (int) *len_a / 5)
 			{
 				reverse_rotate(stack_b, *len_b, "rrb");
 				break;
 			}
 		}
-		if (distance_sec <= distance && distance_sec <= distance_last)
+		if (distance_sec < distance && distance_sec < distance_last)
 		{
-			if (distance_sec <= (int) *len_a / 4)
+			if (distance_sec <= (int) *len_a / 5)
 			{
 				swap(stack_b, *len_b, "sb");
 				break;

@@ -6,32 +6,11 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/19 15:54:13 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:42:47 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	return_smallest_index(int *stack_a, int current_len)
-{
-	int	i;
-	int	smallest;
-	int	smallest_index;
-
-	i = 0;
-	smallest = 2147483647;
-	smallest_index = 0;
-	while (i < current_len)
-	{
-		if (stack_a[i] < smallest)
-		{
-			smallest = stack_a[i];
-			smallest_index = i;
-		}
-		i++;
-	}
-	return (smallest_index);
-}
 
 static void	push_the_smallest_to_b_in_four(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter)
 {
