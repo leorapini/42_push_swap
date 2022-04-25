@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 16:03:16 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 20:15:34 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,34 +59,6 @@ int		return_average_value(int *stack_a, size_t len_a)
 	return (total_value / (int) len_a);
 }
 
-static int	return_top_number(int *stack, size_t len, int	largest_number, int smallest_number)
-{
-	size_t i;
-
-	i = 0;
-	while (i < len)
-	{
-		if (stack[i] != largest_number && stack[i] != smallest_number)
-			break;
-		i++;
-	}
-	return (stack[i]);
-}
-
-static int	return_bottom_number(int *stack, size_t len, int	largest_number, int smallest_number)
-{
-	size_t i;
-
-	i = len -1;
-	while (i > 0)
-	{
-		if (stack[i] != largest_number && stack[i] != smallest_number)
-			break;
-		i--;
-	}
-	return (stack[i]);
-}
-
 static int	return_proximity_index(int *stack, size_t len, int current_number)
 {
 	size_t	i;
@@ -113,7 +85,7 @@ static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, si
 	int	prox_index_sec;
 
 	i = 0;
-	while (*len_b > 2 && *len_a > 10 && i < (int) *len_b)
+	while (*len_b > 2 && *len_a > 7 && i < (int) *len_b)
 	{
 		proximity_index = return_proximity_index(stack_a, *len_a, stack_b[FIRST]);
 		prox_index_last = return_proximity_index(stack_a, *len_a, stack_b[*len_b - 1]);
@@ -169,12 +141,9 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	int	smallest_number_index;
 	int	largest_number_index;
 	int	current_len;
-	int	average_value;
 	int	current_first;
 	int current_third;
 	int	current_last;
-	int	top_number;
-	int bottom_number;
 	int proximity_index;
 
 	j = 0;
@@ -185,7 +154,6 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	second_item = stack_a[SECOND];
 	smallest_number = return_smallest_number(stack_a, *len_a);
 	largest_number = return_largest_number(stack_a, *len_a);
-	average_value = return_average_value(stack_a, *len_a);
 
 
 	// PHASE ONE
@@ -208,6 +176,7 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 		i++;
 	}
 
+
 	// PHASE TWO
 	while (*len_b > 0)
 	{
@@ -220,15 +189,14 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 		current_first = stack_a[FIRST];
 		current_third = stack_a[THIRD];
 		current_last = stack_a[*len_a - 1];
-		top_number = return_top_number(stack_a, *len_a, largest_number, smallest_number);
-		bottom_number = return_bottom_number(stack_a, *len_a, largest_number, smallest_number);
 		proximity_index = return_proximity_index(stack_a, *len_a, current_number);
-		// printf("--------\nARRAY A: ");
-		// print_array(stack_a, *len_a);
-		// printf("ARRAY B: ");
-		// print_array(stack_b, *len_b);
 		while (i < original_len)
 		{
+			// printf("\n");
+			// printf("--------\nARRAY A: ");
+			// print_array(stack_a, *len_a);
+			// printf("ARRAY B: ");
+			// print_array(stack_b, *len_b);
 			if (current_number < stack_a[FIRST] && current_number > stack_a[*len_a - 1])
 			{
 				*counter = *counter + 1;
@@ -238,20 +206,21 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 			else if (current_number < stack_a[SECOND] && stack_a[FIRST] == largest_number)
 			{
 				*counter = *counter + 2;
+				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
-				swap(stack_a, *len_a, "sa");
+				// swap(stack_a, *len_a, "sa");
 				break ; 
 			}
 			else if (current_number > stack_a[FIRST] && current_number < stack_a[SECOND])
 			{
 				*counter = *counter + 2;
+				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
-				swap(stack_a, *len_a, "sa");
+				// swap(stack_a, *len_a, "sa");
 				break ; 
 			}
 			else
 			{
-				// This can be done better. First choose what number to use (current, second or last)
 				if (proximity_index > (int) *len_a / 2)
 				{
 					*counter = *counter + 1;
