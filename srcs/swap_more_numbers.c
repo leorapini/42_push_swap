@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 12:43:18 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 15:20:06 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,55 +104,59 @@ static int	return_proximity_index(int *stack, size_t len, int current_number)
 // Didn't add counter
 static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 {
+	int	i;
 	int	distance;
+	int	distance_last;
+	int	distance_sec;
 	int	proximity_index;
+	int prox_index_last;
+	int	prox_index_sec;
 
-	distance = 99999;
-	proximity_index = 0;
-	while (*len_b > 2)
+	i = 0;
+	while (*len_b > 2 && *len_a > 10 && i < (int) *len_b)
 	{
 		proximity_index = return_proximity_index(stack_a, *len_a, stack_b[FIRST]);
+		prox_index_last = return_proximity_index(stack_a, *len_a, stack_b[*len_b - 1]);
+		prox_index_sec = return_proximity_index(stack_a, *len_a, stack_b[SECOND]);
 		if (proximity_index < (int) *len_a / 2)
 			distance = proximity_index;
 		else
 			distance = (int) *len_a - proximity_index;
-		if (distance >= 20)
-			rotate(stack_b, *len_b, "rb");
+		if (prox_index_last < (int) *len_a / 2)
+			distance_last = prox_index_last;
 		else
-			break ;
+			distance_last = (int) *len_a - prox_index_last;
+		if (prox_index_sec < (int) *len_a / 2)
+			distance_sec = prox_index_sec;
+		else
+			distance_sec = (int) *len_a - prox_index_sec;
+		// the min should be dinamically calculated. Ie if *len_a > 10, min should be 3, if len_a > 20 it should be 5, etc...
+		// printf("distance: %d len_a %zu\n", distance, *len_a);
+		if (distance <= distance_last && distance <= distance_sec)
+		{
+			if (distance <= (int) *len_a / 4)
+				break;
+		}
+		if (distance_last < distance && distance_last <= distance_sec)
+		{
+			if (distance_last <= (int) *len_a / 4)
+			{
+				reverse_rotate(stack_b, *len_b, "rrb");
+				break;
+			}
+		}
+		if (distance_sec <= distance && distance_sec <= distance_last)
+		{
+			if (distance_sec <= (int) *len_a / 4)
+			{
+				swap(stack_b, *len_b, "sb");
+				break;
+			}
+		}
+		rotate(stack_b, *len_b, "rb");
+		i++;
 	}
 }
-
-// // Didn't add counter
-// static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
-// {
-// 	int	dist_current;
-// 	int	dist_second;
-// 	int	proximity_index_cur;
-// 	int	proximity_index_sec;
-
-// 	dist_current = 0;
-// 	dist_second = 0;
-// 	proximity_index_cur = 0;
-// 	proximity_index_sec = 0;
-// 	if (*len_b > 2)
-// 	{
-// 		proximity_index_cur = return_proximity_index(stack_a, *len_a, stack_b[FIRST]);
-// 		proximity_index_sec = return_proximity_index(stack_a, *len_a, stack_b[SECOND]);
-// 		if (proximity_index_cur < (int) *len_a / 2)
-// 			dist_current = proximity_index_cur;
-// 		else
-// 			dist_current = (int) *len_a - proximity_index_cur;
-// 		if (proximity_index_sec < (int) *len_a / 2)
-// 			dist_second = proximity_index_sec;
-// 		else
-// 			dist_second = (int) *len_a - proximity_index_sec;
-// 		// printf("cur_num: %d prox_ind: %d dist: %d\n", stack_b[FIRST], proximity_index_cur, dist_current);
-// 		// printf("sec_num: %d prox_ind: %d dist: %d\n", stack_b[SECOND], proximity_index_sec, dist_second);
-// 		if (proximity_index_sec < proximity_index_cur)
-// 			swap(stack_b, *len_b, "sb");
-// 	}
-// }
 
 void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter)
 {
@@ -209,7 +213,7 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	// PHASE TWO
 	while (*len_b > 0)
 	{
-		if (stack_b[FIRST] != smallest_number && original_len > 99)
+		if (stack_b[FIRST] != smallest_number)
 			find_shortest_distance(stack_a, stack_b, len_a, len_b);
 		current_number = stack_b[FIRST];
 		i = 0;
