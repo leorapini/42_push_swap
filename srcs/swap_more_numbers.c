@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 20:15:34 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 22:02:12 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, si
 		{
 			if (distance_sec <= (int) *len_a / 5)
 			{
-				swap(stack_b, *len_b, "sb");
+				rotate(stack_b, *len_b, "rb");
 				break;
 			}
 		}
@@ -145,6 +145,7 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	int current_third;
 	int	current_last;
 	int proximity_index;
+	int first_sort;
 
 	j = 0;
 	i = 0;
@@ -154,14 +155,43 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	second_item = stack_a[SECOND];
 	smallest_number = return_smallest_number(stack_a, *len_a);
 	largest_number = return_largest_number(stack_a, *len_a);
+	first_sort = 1;
+	
 
 
 	// PHASE ONE
 	while (!(is_a_stack_sorted(stack_a, *len_a)) && i < original_len * 2)
 	{
-		if (*len_a == 3)
+		if (*len_a == original_len && first_sort)
+		{
+			first_sort = 0;
+			if (stack_a[0] < stack_a[1] && stack_a[0] < stack_a[2] && stack_a[0] < stack_a[*len_a - 1])
+			{
+				*counter = *counter + 1;
+				rotate(stack_a, *len_a, "ra");
+			}
+			else if (stack_a[1] < stack_a[0] && stack_a[1] < stack_a[2] && stack_a[1] < stack_a[*len_a - 1])
+			{
+				*counter = *counter + 2;
+				swap(stack_a, *len_a, "sa");
+				rotate(stack_a, *len_a, "ra");
+			}
+			else if (stack_a[2] < stack_a[0] && stack_a[2] < stack_a[1] && stack_a[2] < stack_a[*len_a - 1])
+			{
+				*counter = *counter + 2;
+				rotate(stack_a, *len_a, "ra");
+				rotate(stack_a, *len_a, "ra");
+			}
+		}
+		else if (*len_a == 3)
 		{
 			swap_three_numbers_a(stack_a, counter);
+		}
+		else if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] > stack_a[*len_a - 1])
+		{
+			*counter = *counter + 1;
+			swap(stack_a, *len_a, "sa");
+			rotate(stack_a, *len_a, "ra");
 		}
 		else if (stack_a[FIRST] > stack_a[*len_a - 1] || stack_a[FIRST] == largest_number)
 		{
