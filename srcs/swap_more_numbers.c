@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 22:02:12 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/25 22:21:21 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	// PHASE ONE
 	while (!(is_a_stack_sorted(stack_a, *len_a)) && i < original_len * 2)
 	{
+		// make it in a way that it rotates medium numbers and not large ones
 		if (*len_a == original_len && first_sort)
 		{
 			first_sort = 0;
