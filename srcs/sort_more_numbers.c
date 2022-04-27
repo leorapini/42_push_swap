@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_more_numbers.c                                :+:      :+:    :+:   */
+/*   sort_more_numbers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:13:03 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:44:32 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ static int	return_largest_number(int *stack, int len)
 	return (largest_number);
 }
 
-int		return_average_value(int *stack_a, size_t len_a)
+int	return_average_value(int *stack_a, size_t len_a)
 {
 	size_t	i;
-	int	total_value;
-	
+	int		total_value;
+
 	i = 0;
 	total_value = 0;
 	while (i < len_a)
@@ -73,8 +73,8 @@ static int	return_proximity_index(int *stack, size_t len, int current_number)
 	return (i + 1);
 }
 
-// Didn't add counter
-static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+static void	find_shortest_distance(int *stack_a, int *stack_b,
+	size_t *len_a, size_t *len_b)
 {
 	int	i;
 	int	distance;
@@ -128,7 +128,8 @@ static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, si
 	}
 }
 
-void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+void	sort_more_numbers(int *stack_a, int *stack_b,
+	size_t *len_a, size_t *len_b)
 {
 	size_t	i;
 	int	j;
@@ -180,7 +181,7 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 			}
 		}
 		else if (*len_a == 3)
-			swap_three_numbers_a(stack_a);
+			sort_three_numbers_a(stack_a);
 		else if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] > stack_a[*len_a - 1])
 		{
 			swap(stack_a, *len_a, "sa");
@@ -211,11 +212,6 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 		proximity_index = return_proximity_index(stack_a, *len_a, current_number);
 		while (i < original_len)
 		{
-			// printf("\n");
-			// printf("--------\nARRAY A: ");
-			// print_array(stack_a, *len_a);
-			// printf("ARRAY B: ");
-			// print_array(stack_b, *len_b);
 			if (current_number < stack_a[FIRST] && current_number > stack_a[*len_a - 1])
 			{
 				push_a(stack_a, stack_b, len_a, len_b);
@@ -225,14 +221,12 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 			{
 				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
-				// swap(stack_a, *len_a, "sa");
 				break ; 
 			}
 			else if (current_number > stack_a[FIRST] && current_number < stack_a[SECOND])
 			{
 				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
-				// swap(stack_a, *len_a, "sa");
 				break ; 
 			}
 			else

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_three_numbers.c                               :+:      :+:    :+:   */
+/*   sort_three_numbers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:39:43 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:25:56 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:35:28 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_three_numbers_a(int *stack)
+void	sort_three_numbers_a(int *stack)
 {
 	if (stack[FIRST] > stack[SECOND] && stack[THIRD] > stack[FIRST])
 		swap(stack, 3, "sa");

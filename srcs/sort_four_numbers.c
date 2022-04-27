@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_four_numbers.c                                :+:      :+:    :+:   */
+/*   sort_four_numbers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:27:47 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:37:56 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ static int	express_sorting_for_four(int *stack_a)
 	return (0);
 }
 
-void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+void	sort_four_numbers(int *stack_a, int *stack_b,
+	size_t *len_a, size_t *len_b)
 {
 	int	i;
 	int	current_number;
@@ -88,7 +89,7 @@ void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 	if (!(express_sorting_for_four(stack_a)))
 	{
 		push_the_smallest_to_b_in_four(stack_a, stack_b, len_a, len_b);
-		swap_three_numbers_a(stack_a);
+		sort_three_numbers_a(stack_a);
 		while (i < 1 && *len_b > 0)
 		{
 			current_number = stack_b[FIRST];

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_five_numbers.c                                :+:      :+:    :+:   */
+/*   sort_five_numbers.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:25:31 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:38:23 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ static int	express_sorting_for_five(int *stack_a)
 	return (0);
 }
 
-void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+void	sort_five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 {
 	int	i;
 	int	current_number;
@@ -143,7 +143,7 @@ void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 	if (!(express_sorting_for_five(stack_a)))
 	{
 		push_the_smallest_to_b(stack_a, stack_b, len_a, len_b);
-		swap_three_numbers_a(stack_a);
+		sort_three_numbers_a(stack_a);
 		swap_two_numbers_b(stack_b);
 		while (i < 2 && *len_b > 0)
 		{
