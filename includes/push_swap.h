@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/22 17:19:08 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:06:15 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int		is_a_stack_sorted(int *stack_a, size_t current_len);
 int		is_argv_num(char **argv);
 int		str_is_digit(char *s);
 
-/* LOGIC */
-void	swap_it(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+/* SORT */
+void	sort(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* SWAP SORTING */
 void	swap(int *stack, size_t current_len, char *operation);
@@ -60,24 +60,21 @@ void	rev_rotate_a_rev_rotate_b(int *stack_a, int *stack_b, size_t len_a,
 
 /* SWAP TWO NUMBERS */
 void	swap_two_numbers_a(int *stack);
-void	swap_two_numbers_b(int *stack, int *counter);
+void	swap_two_numbers_b(int *stack);
 
 /* SWAP THREE NUMBERS */
-void	swap_three_numbers_a(int *stack, int *counter);
+void	swap_three_numbers_a(int *stack);
 
 /* SWAP FOUR NUMBERS */
-void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+void	four_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* SWAP FIVE NUMBERS */
-void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+void	five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 int		return_smallest_index(int *stack_a, int current_len);
 int		return_largest_index(int *stack_a, int current_len);
 
 /* SWAP MORE NUMBERS */
-void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter);
+void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 int		return_average_value(int *stack_a, size_t len_a);
-
-/* TEST */
-void	test_swap(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/25 22:21:21 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/27 18:13:03 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ static void	find_shortest_distance(int *stack_a, int *stack_b, size_t *len_a, si
 	}
 }
 
-void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int *counter)
+void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
 {
 	size_t	i;
 	int	j;
@@ -167,43 +167,29 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 		{
 			first_sort = 0;
 			if (stack_a[0] < stack_a[1] && stack_a[0] < stack_a[2] && stack_a[0] < stack_a[*len_a - 1])
-			{
-				*counter = *counter + 1;
 				rotate(stack_a, *len_a, "ra");
-			}
 			else if (stack_a[1] < stack_a[0] && stack_a[1] < stack_a[2] && stack_a[1] < stack_a[*len_a - 1])
 			{
-				*counter = *counter + 2;
 				swap(stack_a, *len_a, "sa");
 				rotate(stack_a, *len_a, "ra");
 			}
 			else if (stack_a[2] < stack_a[0] && stack_a[2] < stack_a[1] && stack_a[2] < stack_a[*len_a - 1])
 			{
-				*counter = *counter + 2;
 				rotate(stack_a, *len_a, "ra");
 				rotate(stack_a, *len_a, "ra");
 			}
 		}
 		else if (*len_a == 3)
-		{
-			swap_three_numbers_a(stack_a, counter);
-		}
+			swap_three_numbers_a(stack_a);
 		else if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] > stack_a[*len_a - 1])
 		{
-			*counter = *counter + 1;
 			swap(stack_a, *len_a, "sa");
 			rotate(stack_a, *len_a, "ra");
 		}
 		else if (stack_a[FIRST] > stack_a[*len_a - 1] || stack_a[FIRST] == largest_number)
-		{
-			*counter = *counter + 1;
 			rotate(stack_a, *len_a, "ra");
-		}
 		else
-		{
-			*counter = *counter + 1;
 			push_b(stack_a, stack_b, len_a, len_b);
-		}
 		i++;
 	}
 
@@ -213,6 +199,8 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	{
 		if (stack_b[FIRST] != smallest_number)
 			find_shortest_distance(stack_a, stack_b, len_a, len_b);
+		else 
+			rotate(stack_b, *len_b, "rb");
 		current_number = stack_b[FIRST];
 		i = 0;
 		largest_number_index = return_largest_index(stack_a, *len_a);
@@ -230,13 +218,11 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 			// print_array(stack_b, *len_b);
 			if (current_number < stack_a[FIRST] && current_number > stack_a[*len_a - 1])
 			{
-				*counter = *counter + 1;
 				push_a(stack_a, stack_b, len_a, len_b);
 				break ;
 			}
 			else if (current_number < stack_a[SECOND] && stack_a[FIRST] == largest_number)
 			{
-				*counter = *counter + 2;
 				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
 				// swap(stack_a, *len_a, "sa");
@@ -244,7 +230,6 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 			}
 			else if (current_number > stack_a[FIRST] && current_number < stack_a[SECOND])
 			{
-				*counter = *counter + 2;
 				rotate(stack_a, *len_a, "ra");
 				push_a(stack_a, stack_b, len_a, len_b);
 				// swap(stack_a, *len_a, "sa");
@@ -253,15 +238,9 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 			else
 			{
 				if (proximity_index > (int) *len_a / 2)
-				{
-					*counter = *counter + 1;
 					reverse_rotate(stack_a, *len_a, "rra");
-				}
 				else
-				{
-					*counter = *counter + 1;
 					rotate(stack_a, *len_a, "ra");
-				}
 			}
 			i++;
 		}
@@ -272,14 +251,9 @@ void	more_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b, int 
 	while (stack_a[FIRST] != smallest_number && stack_a[*len_a - 1] != largest_number)
 	{
 		if (smallest_number_index > (int) *len_a / 2)
-		{
-			*counter = *counter + 1;
 			reverse_rotate(stack_a, *len_a, "rra");
-		}
 		else
-		{
-			*counter = *counter + 1;
+
 			rotate(stack_a, *len_a, "ra");
-		}
 	}
 }
