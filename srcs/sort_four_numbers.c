@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/28 08:39:26 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/28 09:58:05 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sort_four_numbers(int *stack_a, int *stack_b,
 	if (!(express_sorting_for_four(stack_a, *len_a)))
 	{
 		push_the_smallest_to_b_in_four(stack_a, stack_b, len_a, len_b);
-		sort_three_numbers_a(stack_a);
+		sort_three_numbers_a(stack_a, *len_a);
 		while (i < 1 && *len_b > 0)
 		{
 			current_number = stack_b[FIRST];

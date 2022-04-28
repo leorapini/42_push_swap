@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 18:47:27 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:44:32 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/28 09:58:32 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ void	sort_more_numbers(int *stack_a, int *stack_b,
 			}
 		}
 		else if (*len_a == 3)
-			sort_three_numbers_a(stack_a);
+			sort_three_numbers_a(stack_a, *len_a);
 		else if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND] > stack_a[*len_a - 1])
 		{
 			swap(stack_a, *len_a, "sa");

@@ -6,197 +6,101 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 14:52:19 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:38:23 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/28 16:09:31 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	return_smallest_index(int *stack_a, int current_len)
-{
-	int	i;
-	int	smallest;
-	int	smallest_index;
-
-	i = 0;
-	smallest = 2147483647;
-	smallest_index = 0;
-	while (i < current_len)
-	{
-		if (stack_a[i] < smallest)
-		{
-			smallest = stack_a[i];
-			smallest_index = i;
-		}
-		i++;
-	}
-	return (smallest_index);
-}
-
-int	return_largest_index(int *stack_a, int current_len)
-{
-	int	i;
-	int	largest_number;
-	int	largest_index;
-
-	i = 0;
-	largest_number = -2147483646;
-	largest_index = 0;
-	while (i < current_len)
-	{
-		if (stack_a[i] > largest_number)
-		{
-			largest_number = stack_a[i];
-			largest_index = i;
-		}
-		i++;
-	}
-	return (largest_index);
-}
-
 static void	push_the_smallest_to_b(int *stack_a, int *stack_b, size_t *len_a,
 		size_t *len_b)
 {
-	int	i;
 	int	smallest_index;
 
-	i = 0;
 	smallest_index = 0;
-	while (i < 2)
+	while (*len_a > 3)
 	{
 		smallest_index = return_smallest_index(stack_a, *len_a);
 		if (smallest_index == FIRST)
 			push_b(stack_a, stack_b, len_a, len_b);
 		else if (smallest_index == SECOND)
-		{
-			swap(stack_a, *len_a, "sa");
-			push_b(stack_a, stack_b, len_a, len_b);
-		}
-		else if (smallest_index == (int) *len_a - 1)
-		{
-			reverse_rotate(stack_a, *len_a, "rra");
-			push_b(stack_a, stack_b, len_a, len_b);
-		}
+			sa_pb(stack_a, stack_b, len_a, len_b);
 		else if (smallest_index == FOURTH)
-		{
-			reverse_rotate(stack_a, *len_a, "rra");
-			reverse_rotate(stack_a, *len_a, "rra");
-			push_b(stack_a, stack_b, len_a, len_b);
-		}
+			rra_rra_pb(stack_a, stack_b, len_a, len_b);
+		else if (smallest_index == (int) *len_a - 1)
+			rra_pb(stack_a, stack_b, len_a, len_b);
+		else if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND]
+			< stack_a[*len_a - 1])
+			sa_pb(stack_a, stack_b, len_a, len_b);
+		else if (stack_a[*len_a - 1] < stack_a[FIRST] && stack_a[*len_a - 1]
+			< stack_a[SECOND])
+			rra_pb(stack_a, stack_b, len_a, len_b);
 		else
-		{
-			if (stack_a[SECOND] < stack_a[FIRST] && stack_a[SECOND]
-				< stack_a[*len_a - 1])
-				swap(stack_a, *len_a, "sa");
-			else if (stack_a[*len_a - 1] < stack_a[FIRST] && stack_a[*len_a - 1]
-				< stack_a[SECOND])
-				reverse_rotate(stack_a, *len_a, "rra");
 			push_b(stack_a, stack_b, len_a, len_b);
-		}
-		i++;
 	}
 }
 
-static int	express_sorting_for_five(int *stack_a)
+static int	express_sorting_for_five(int *stack_a, int current_len)
 {
-	if (stack_a[FIRST] < stack_a[SECOND] && stack_a[SECOND] < stack_a[THIRD]
-		&& stack_a[THIRD] < stack_a[FOURTH])
+	if ((stack_a[FIRST] < stack_a[SECOND] && stack_a[SECOND] < stack_a[THIRD]
+			&& stack_a[THIRD] < stack_a[FOURTH]) && (stack_a[FIFTH]
+			< stack_a[FIRST]))
 	{
-		if (stack_a[FIFTH] < stack_a[FIRST])
-		{
-			reverse_rotate(stack_a, 5, "rra");
-			if (is_a_stack_sorted(stack_a, 5))
-				return (1);
-		}
+		reverse_rotate(stack_a, current_len, "rra");
+		if (is_a_stack_sorted(stack_a, current_len))
+			return (1);
 	}
-	if (stack_a[SECOND] < stack_a[THIRD] && stack_a[THIRD] < stack_a[FOURTH]
-		&& stack_a[FOURTH] < stack_a[FIFTH])
+	if ((stack_a[SECOND] < stack_a[THIRD] && stack_a[THIRD] < stack_a[FOURTH]
+			&& stack_a[FOURTH] < stack_a[FIFTH]) && (stack_a[FIRST]
+			> stack_a[FIFTH]))
 	{
-		if (stack_a[FIRST] > stack_a[FIFTH])
-		{
-			rotate(stack_a, 5, "ra");
-			if (is_a_stack_sorted(stack_a, 5))
-				return (1);
-		}
+		rotate(stack_a, current_len, "ra");
+		if (is_a_stack_sorted(stack_a, current_len))
+			return (1);
 	}
-	if (stack_a[SECOND] < stack_a[THIRD] && stack_a[THIRD] < stack_a[FOURTH]
-		&& stack_a[FOURTH] < stack_a[FIFTH])
+	if ((stack_a[SECOND] < stack_a[THIRD] && stack_a[THIRD] < stack_a[FOURTH]
+			&& stack_a[FOURTH] < stack_a[FIFTH]) && (stack_a[FIRST]
+			> stack_a[SECOND] && stack_a[FIRST] < stack_a[THIRD]))
 	{
-		if (stack_a[FIRST] > stack_a[SECOND] && stack_a[FIRST] < stack_a[THIRD])
-		{
-			swap(stack_a, 5, "sa");
-			if (is_a_stack_sorted(stack_a, 5))
-				return (1);
-		}
+		swap(stack_a, current_len, "sa");
+		if (is_a_stack_sorted(stack_a, current_len))
+			return (1);
 	}
 	return (0);
 }
 
-void	sort_five_numbers(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b)
+void	sort_five_numbers(int *stack_a, int *stack_b, size_t *len_a,
+	size_t *len_b)
 {
-	int	i;
 	int	current_number;
-	int	smallest_number;
 
-	i = 0;
-	smallest_number = 0;
-	if (!(express_sorting_for_five(stack_a)))
+	if (!(express_sorting_for_five(stack_a, *len_a)))
 	{
 		push_the_smallest_to_b(stack_a, stack_b, len_a, len_b);
-		sort_three_numbers_a(stack_a);
+		sort_three_numbers_a(stack_a, *len_a);
 		swap_two_numbers_b(stack_b);
-		while (i < 2 && *len_b > 0)
+		while (*len_a < 5 && *len_b > 0)
 		{
 			current_number = stack_b[FIRST];
 			if (current_number < stack_a[FIRST])
 				push_a(stack_a, stack_b, len_a, len_b);
 			else if (current_number > stack_a[*len_a - 1])
-			{
-				push_a(stack_a, stack_b, len_a, len_b);
-				rotate(stack_a, *len_a, "ra");
-			}
+				pa_ra(stack_a, stack_b, len_a, len_b);
 			else if (current_number > stack_a[FIRST] && current_number
 				< stack_a[SECOND])
-			{
-				push_a(stack_a, stack_b, len_a, len_b);
-				swap(stack_a, *len_a, "sa");
-			}
-			if (i == FIRST)
-			{
-				if (current_number > stack_a[SECOND] && current_number
-					< stack_a[THIRD])
-				{
-					push_a(stack_a, stack_b, len_a, len_b);
-					reverse_rotate(stack_a, *len_a, "rra");
-					swap(stack_a, *len_a, "sa");
-					rotate(stack_a, *len_a, "ra");
-					rotate(stack_a, *len_a, "ra");
-				}
-			}
+				pa_sa(stack_a, stack_b, len_a, len_b);
+			else if ((*len_a == 3) && (current_number > stack_a[SECOND]
+					&& current_number < stack_a[THIRD]))
+				pa_rra_sa_ra_ra(stack_a, stack_b, len_a, len_b);
 			else
 			{
 				if (current_number > stack_a[THIRD] && current_number
 					< stack_a[FOURTH])
-				{
-					push_a(stack_a, stack_b, len_a, len_b);
-					reverse_rotate(stack_a, *len_a, "rra");
-					swap(stack_a, *len_a, "sa");
-					rotate(stack_a, *len_a, "ra");
-					rotate(stack_a, *len_a, "ra");
-				}
+					pa_rra_sa_ra_ra(stack_a, stack_b, len_a, len_b);
 				else if (current_number > stack_a[SECOND] && current_number
 					< stack_a[THIRD])
-				{
-					push_a(stack_a, stack_b, len_a, len_b);
-					reverse_rotate(stack_a, *len_a, "rra");
-					swap(stack_a, *len_a, "sa");
-					reverse_rotate(stack_a, *len_a, "rra");
-					swap(stack_a, *len_a, "sa");
-					reverse_rotate(stack_a, *len_a, "rra");
-					reverse_rotate(stack_a, *len_a, "rra");
-				}
+					pa_rra_sa_rra_sa_rra_rra(stack_a, stack_b, len_a, len_b);
 			}
-			i++;
 		}
 	}
 }
