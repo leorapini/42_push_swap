@@ -6,7 +6,7 @@
 /*   By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 19:16:08 by lpinheir          #+#    #+#             */
-/*   Updated: 2022/04/27 18:39:02 by lpinheir         ###   ########.fr       */
+/*   Updated: 2022/04/28 07:54:45 by lpinheir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int		is_a_stack_sorted(int *stack_a, size_t current_len);
 /* STR UTILS */
 int		is_argv_num(char **argv);
 int		str_is_digit(char *s);
+
+/* QUICK COMBOS */
+void	sa_pb(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+void	rra_rra_pb(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
+void	rra_pb(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);
 
 /* SORT */
 void	sort(int *stack_a, int *stack_b, size_t *len_a, size_t *len_b);

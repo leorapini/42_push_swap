@@ -6,7 +6,7 @@
 #    By: lpinheir <lpinheir@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/23 18:46:33 by lpinheir          #+#    #+#              #
-#    Updated: 2022/04/27 18:37:01 by lpinheir         ###   ########.fr        #
+#    Updated: 2022/04/28 07:51:49 by lpinheir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRCS = $(S_DIR)/main.c \
 		$(S_DIR)/sort_four_numbers.c \
 		$(S_DIR)/sort_five_numbers.c \
 		$(S_DIR)/sort_more_numbers.c \
+		$(S_DIR)/quick_combos.c \
 
 OBJS = $(subst $(S_DIR), $(O_DIR), $(SRCS:.c=.o))
 
